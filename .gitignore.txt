@@ -1,8 +1,0 @@
-*.pt
-*.safetensors
-.env
-config/local.json
-switch_sides_2/model/best_bart_model-14534.pt
-create_3/bosu/model.safetensors
-create_3/jinbo/model.safetensors
-tokenizer_kiwi.json
