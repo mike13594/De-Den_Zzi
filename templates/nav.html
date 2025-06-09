@@ -1,0 +1,31 @@
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-grey w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-grey" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+      <a href="{% url 'analysis:analysis' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Analysis</a>
+      <a href="{% url 'classifier_1:classifier_1' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Classifer</a>
+      <a href="{% url 'switch_sides_2:switch_sides_2' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Switch</a>
+      <a href="{% url 'create_3:create_3' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Write</a>
+    </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="{% url 'analysis:analysis' %}" class="w3-bar-item w3-button w3-padding-large">Analysis</a>
+      <a href="{% url 'classifier_1:classifier_1' %}" class="w3-bar-item w3-button w3-padding-large">Classifer</a>
+      <a href="{% url 'switch_sides_2:switch_sides_2' %}" class="w3-bar-item w3-button w3-padding-large">Switch</a>
+      <a href="{% url 'create_3:create_3' %}" class="w3-bar-item w3-button w3-padding-large">Write</a>
+    </div>
+  </div>
+
+  <script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    </script>

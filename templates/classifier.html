@@ -1,0 +1,41 @@
+{% extends "_base.html" %}
+{% block head-content %}
+
+{% endblock %}
+{% block body-content %}
+
+
+
+<form method="GET" class="w3-container w3-card-4 w3-light-grey">
+
+    <br />
+    <br />
+    <br />
+    <h2>정치적 성향 분석기</h2>
+    <p>정치적 성향을 알고 싶은 기사를 입력하세요.</p>
+  
+    <p><label>Article</label></p>
+    <textarea class="w3-input w3-border" cols="5" rows="10" name="text" type="text" required>{{text}}</textarea>
+
+    <input class="w3-button w3-round-xlarge w3-grey" type="submit">
+
+</form>
+
+<hr class="hr-1">
+<div 
+        {% if jinbo %}
+    class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue"
+        {% elif bosu %}
+    class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red"
+        {% endif %}>
+    <p>
+        {% if jinbo %}
+            {{jinbo}}
+        {% elif bosu %}
+            {{bosu}}
+        {% endif %}
+    </p>
+</div>
+
+
+{% endblock %}
