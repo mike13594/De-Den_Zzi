@@ -14,3 +14,10 @@ create_3/jinbo/tokenizer_config.json
 switch_sides_2/model/best_bart_model-14534.pt
 django-server-key.pem
 classifier_1/komoran_base_user_dict.txt
+analysis/__pycache__/models.cpython-312.pyc
+analysis/migrations/__pycache__/0001_initial.cpython-312.pyc
+analysis/migrations/__pycache__/0002_delete_key_analysismodel.cpython-312.pyc
+create_3/__pycache__/views.cpython-312.pyc
+classifier_1/__pycache__/views.cpython-312.pyc
+switch_sides_2/__pycache__/forms.cpython-312.pyc
+switch_sides_2/__pycache__/views.cpython-312.pyc
