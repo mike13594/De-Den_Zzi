@@ -81,7 +81,7 @@ def switch_sides_2(request):
         "onoffform" : onoffform,
     }
 
-    elif request.GET.get("on_off", "") == '좌파':
+    elif request.GET.get("on_off", "") == '진보':
         text = request.GET.get("text")
         text = clean_text(text)
         # device 지정
@@ -122,7 +122,7 @@ def switch_sides_2(request):
             "text" : text,
         }
 
-    elif request.GET.get("on_off", "") == '우파':
+    elif request.GET.get("on_off", "") == '보수':
         text = request.GET.get("text")
         text = clean_text(text)
         # device 지정

@@ -26,7 +26,7 @@ def create_3(request):
     }
 
 
-    elif request.GET.get("on_off", "") == '좌파':
+    elif request.GET.get("on_off", "") == '진보':
         text = request.GET.get("text")
         input_ids = tokenizer_j.encode(text)
         gen_ids = model_j.generate(torch.tensor([input_ids]),
@@ -45,7 +45,7 @@ def create_3(request):
             "text" : text,
         }
 
-    elif request.GET.get("on_off", "") == '우파':
+    elif request.GET.get("on_off", "") == '보수':
         text = request.GET.get("text")
         input_ids = tokenizer_b.encode(text)
         gen_ids = model_b.generate(torch.tensor([input_ids]),

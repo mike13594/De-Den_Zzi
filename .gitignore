@@ -13,3 +13,4 @@ create_3/jinbo/tokenizer.json
 create_3/jinbo/tokenizer_config.json
 switch_sides_2/model/best_bart_model-14534.pt
 django-server-key.pem
+classifier_1/komoran_base_user_dict.txt

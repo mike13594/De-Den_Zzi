@@ -1,12 +1,13 @@
 from django.shortcuts import render
-import numpy as np
 import re # 사용자 텍스트 전처리
 from keras.models import load_model # 모델 불러오기
 from tensorflow import keras # 예측용
+import numpy as np # 예측용
 from tensorflow.keras.preprocessing.sequence import pad_sequences # 사용자 텍스트 패딩
 from tensorflow.keras.preprocessing.text import Tokenizer, tokenizer_from_json # 사용자 텍스트 토큰화
 import json # keras의 tokenizer 불러오기
 from kiwipiepy import Kiwi # 사용자 텍스트 형태소 분석
+from kiwipiepy.utils import Stopwords # 불용어 처리용
 
 
 # Create your views here.
@@ -43,46 +44,42 @@ def classifier_1(request):
         text = re.sub(remove_t2, "", string = text)
         text = text.replace("  ", " ")
 
-    with open("classifier_1/final_stop_words.txt", "r", encoding = "utf-8") as f:
-        stop_words = []
+    stop_words = []
+    with open("classifier_1/final_stop_words.txt", "r", encoding = "utf-8") as f:    
         for word in f:
-            if word.strip():
-                stop_words.append(word.strip())
+            stop_words.append(word.strip())
     stop_words = list(set(stop_words)) # 중복 제거
 
+    # 불용어 객체 생성 및 단어 추가
+    sws = Stopwords()
+    for word in stop_words:
+        sws.add(word)
+    # 형태소 분석기 가져오기
     kiwi = Kiwi()
 
-    with open("classifier_1/custom_dict_kiwi.txt", "r", encoding = "utf-8") as f:
-        nouns = []
-        scores = []
-        for sets in f:
-            nouns.append(sets.strip().split("\t")[0])
-            scores.append(float(sets.strip().split("\t")[2]))
 
-    for i in range(len(nouns)):
-        kiwi.add_user_word(nouns[i], "NNG", scores[i])
+    # 커스텀 단어사전 적용
+    kiwi.add_user_word("classifier_1/komoran_base_user_dict.txt")
 
-    # 사용자 입력 데이터 전처리
-    kiwi_news = [kiwi.tokenize(text)]
+    # 사용자 입력 데이터 형태소 분석
+    kiwi_news = kiwi.tokenize(text, normalize_coda = True, stopwords = sws)
 
-        # 불용어 제거 및 명, 형, 동만 남기기
+    # 불용어 제거 및 명, 형, 동만 남기기
     final_text = []
-    for word_set in kiwi_news[0]:
-        word = word_set[0]
-        tag = word_set[1]
-        if word in stop_words:        
-            continue
-        if tag in ("NNP", "NNG", "VV", "VA"):
-            final_text.append(word)
+    for word_set in kiwi_news:
+        if len(word_set) > 0:
+            word = word_set[0]
+            tag = word_set[1]
+            if tag in ("NNP", "NNG", "VV", "VA"):
+                final_text.append(word)
 
-    # 문장화
+    # 문장으로 만들기
     final_seq = []
+    temp_seq = ""
     for seq in final_text:
-        temp_seq = ""
-        for word in seq:
-            temp_seq += word + " "
-        temp_seq = temp_seq[:-1]
-        final_seq.append(temp_seq)
+        temp_seq += seq + " "
+    temp_seq = temp_seq[:-1]
+    final_seq.append(temp_seq)
 
     # 토큰화
     with open("classifier_1/tokenizer_kiwi.json", "r", encoding = "utf-8") as f:
@@ -94,11 +91,12 @@ def classifier_1(request):
     user_text = pad_sequences(user_text, maxlen = 300, truncating = "post", padding = "post")
 
     # 모델 불러오기
-    model = load_model("classifier_1/model/cnn_kiwi_hanmon_edit_2000.keras")
+    model = load_model("classifier_1/model/cnn_model.keras")
 
     # 예측 진행
     pred = model.predict(user_text)
     pred_result = np.argmax(pred)
+
     if pred_result == 0:
         bosu="보수 성향의 기사입니다."
         context = {

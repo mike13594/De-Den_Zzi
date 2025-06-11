@@ -2,8 +2,8 @@ from django import forms
 
 class OnOffForm(forms.Form):
     on_off_choices = [
-        ("좌파", "좌파"),
-        ("우파", "우파"),
+        ("진보", "진보"),
+        ("보수", "보수"),
     ]
     on_off = forms.ChoiceField(
         choices = on_off_choices,
