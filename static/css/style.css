@@ -1,0 +1,728 @@
+/* Font */
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Noto Sans KR", sans-serif!important;
+}
+
+.main_font{
+    font-family: "Noto Sans KR", sans-serif;  
+}
+
+.bold_font{
+    font-weight: 600;
+}
+
+.w3-bar,h1,button {
+    font-family: "Noto Sans KR", sans-serif;
+}
+.fa-anchor,.fa-coffee {
+    font-size:200px
+}
+
+.page-wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body{
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Base setting */
+.center{
+    text-align: center!important;
+}
+
+.opacity_60{
+    opacity: 0.60;
+}
+
+.opacity_30{
+    opacity: 0.30;
+}
+
+.container{    
+    padding: 0.01em 100px;
+    flex: 1;
+}
+
+.container_index::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container_main hr{
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 90%;
+    border-top: 3px double #b1b1b1;
+}
+
+.contents{
+    /* margin-top: 3%; */
+    overflow: hidden;
+}
+
+.name{
+    /* margin-top: 3%; */
+}
+
+.top{
+    top: 0;
+    position:fixed;
+    width:100%;
+    z-index:1
+}
+
+.right{
+    float: right!important;
+}
+
+.left-align{
+    text-align: left!important;
+}
+
+.text_large{
+    font-size:18px!important
+}
+
+.text_center{
+    text-align: center!important;
+}
+
+.text_center_center{
+    text-align: center!important;
+    /* line-height: 400px; */
+}
+
+.content{
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.padding_30{
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+
+}
+
+.text_area{
+    border: 1px solid #ccc !important;
+    resize: none;
+}
+
+.black_c{
+    color:#fff!important;
+    background-color:#000!important;
+}
+
+/* Header setting */
+.header{
+    height: 100%;
+    width: 100%;
+    background-image: url(./../image/header_img4.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #F9F9FA;
+    min-height: 250px;
+}
+
+.header_font{
+    font-size: 64px!important;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 600;
+    text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.3);
+}
+
+.header_p{
+    font-size: 16px!important;
+    font-weight: 200;
+}
+
+/* Index contents */
+
+blockquote{
+  display:block;
+  background: #fff;
+  padding: 15px 20px 15px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  
+  /*Font*/
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #666;
+
+  /*Box Shadow - (Optional)*/
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+
+  /*Borders - (Optional)*/
+  border-left-style: solid;
+  border-left-width: 15px;
+  border-right-style: solid;
+  border-right-width: 2px;    
+}
+
+blockquote::before{
+  content: "\201C"; /*Unicode for Left Double Quote*/
+  
+  /*Font*/
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #999;
+  
+  /*Positioning*/
+  position: absolute;
+  left: 10px;
+  top:5px;  
+}
+
+blockquote::after{
+  /*Reset to make sure*/
+  content: "";
+}
+
+blockquote.grapefruit{
+  border-left-color: #ed5565;
+  border-right-color: #da4453;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 20px 15px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #666;
+  box-shadow: 2px 2px 15px #ccc;
+  border-left: 15px solid #ed5565;
+  border-right: 2px solid #da4453;
+}
+
+blockquote.grapefruit .quote-text {
+  flex: 1; 
+  margin-right: 1em;
+}
+
+blockquote.grapefruit .quote-icon {
+  flex: 0 0 auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+span.Cgrapefruit{
+  color:#da4453;
+}
+
+blockquote.bluejeans{
+  border-right-color: #5e9de6;
+  border-left-color: #4b8ad6;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 20px 15px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #666;
+  box-shadow: 2px 2px 15px #ccc;
+  border-right: 15px solid #5e9de6;
+  border-left: 2px solid #4b8ad6;
+}
+
+span.Cbluejeans{
+  color:#4b8ad6;
+}
+
+blockquote.bluejeans .quote-text {    
+  flex: 1; 
+  margin-left: 1em;
+}
+
+blockquote.bluejeans .quote-icon {
+  flex: 0 0 auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* 수정중! */
+/* .twelve_font {
+    font-size: 64px;
+    font-weight: 600;  
+    letter-spacing:1px; 
+    text-align:center; 
+    margin:auto; 
+    white-space:nowrap; 
+}
+
+.twelve_font:before {
+    position: sticky;
+    background-color: #c50000;
+    content: '';
+    display: block;
+    left:30%; 
+        margin-left:-30%;
+    text-align:center; 
+    height: 3px;
+    width: 75px;
+    margin-bottom: 5px;
+}
+.twelve_font:after {
+    background-color: #c50000;
+    content: '';
+    display: block;
+        position:absolute; 
+    right:0; 
+    bottom:0;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 0.25em;    
+} */
+
+
+/* Footer setting */
+.footer{
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 32px 0;    
+}
+
+.footer_padding{
+    padding-top: 32px!important;
+    padding-bottom: 32px!important;
+}
+
+
+
+.w3-margin{margin:16px!important}
+.w3-margin-top{margin-top:16px!important}
+.w3-margin-bottom{margin-bottom:16px!important}
+.w3-margin-left{margin-left:16px!important}
+.w3-margin-right{margin-right:16px!important}
+
+/* Classifier setting */
+
+.container_main{
+    padding: 0.01em 100px;
+    margin-top: 50px;
+    overflow: hidden;
+	position: relative;
+    flex: 1;
+}
+
+.container_clf::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.name{
+    position: static;
+    top: 5%;
+}
+
+.double_quote::before{
+    content: "\201C";      
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: rgb(254, 204, 0);
+}
+
+.double_quote{
+    content: "";
+}
+
+.name p{
+    margin-left: 40px;
+    margin-bottom: 0;
+}
+
+.form_container{
+    margin-left: 40px;
+    height: 500px;
+}
+
+form{
+    border: none!important;
+    outline: none!important;
+    box-shadow: none!important;
+}
+
+.result_container{
+    margin-top: 125px;    
+    margin-left: 40px;
+    height: 150px;
+}
+
+.block{
+    width: 50%; 
+    float: left;
+    margin-right: 3%;
+}
+
+.block_result{
+    width: 40%;
+    float: left;
+    position: relative;
+}
+
+.card{
+    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+.input{
+    padding:8px;
+    display:block;
+    border:none;
+    border-bottom:1px solid #ccc;
+    width:100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.clf_btn_lst{
+    margin-top: 10px;
+    float: right;
+}
+
+.btn{
+    width: 3%;
+}
+
+.input_btn{
+    position: relative;
+    margin-left: 10px;
+    width: 70px;
+    height: 40px;
+}
+
+.reset_btn{
+}
+
+.jinbo_result{
+    position:relative;
+    border-left:4px solid #9eacff;
+    border-right:4px solid #9eacff;
+    padding:20px;
+    background:#eff2ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jinbo_result:before{
+    position:absolute;
+    font-family:"Noto Sans KR", sans-serif;
+    content:"\201C";
+    font-size: 55px;
+    color:#9eacff;
+    top:5px;
+    left:10px;
+}
+
+.jinbo_result:after{
+    position:absolute;
+    font-family:"Noto Sans KR", sans-serif;
+    content:"\201D";
+    font-size: 70px;
+    color:#9eacff;
+    right:10px;
+    bottom:-25px;
+}
+
+.bosu_result{
+    position:relative;
+    border-left:4px solid #ff9e9e;
+    border-right:4px solid #ff9e9e;
+    padding:20px;
+    background:#ffefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bosu_result:before{
+    position:absolute;
+    font-family:"Noto Sans KR", sans-serif;
+    content:"\201C";
+    font-size: 55px;
+    color:#ff9e9e;
+    top:5px;
+    left:10px;
+}
+
+.bosu_result:after{
+    position:absolute;
+    font-family:"Noto Sans KR", sans-serif;
+    content:"\201D";
+    font-size: 70px;
+    color:#ff9e9e;
+    right:10px;
+    bottom:-25px; 
+}
+
+.none_result{
+    border-left:10px solid #a8a8a8;
+    border-right:10px solid #a8a8a8;
+    padding:20px;
+    background:#f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.none_result:before{
+    position:absolute;
+    font-family:"Noto Sans KR", sans-serif;
+    content:"\201C";
+    font-size: 55px;
+    color:#a8a8a8;
+    top:5px;
+    left:10px;
+}
+
+.none_result:after{
+    position:absolute;
+    font-family:"Noto Sans KR", sans-serif;
+    content:"\201D";
+    font-size: 70px;
+    color:#a8a8a8;
+    right:10px;
+    bottom:-25px;  
+}
+
+
+/* Switch setting */
+.user_select{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-items: center;
+}
+
+.select_box{
+    min-width: 200px;
+    flex: 1;
+}
+
+[type="radio"] {
+    appearance : none;
+    border-radius: 50%;  
+    width: 15px;
+    height: 15px;
+    border: 1px solid;
+    cursor: pointer;  
+    margin-right: 6px;
+}
+  
+[type="radio"]:checked {
+    border: 0.3em solid rgb(254, 204, 0);
+}
+
+.rbtn{
+    display: flex;
+    justify-items: center;
+    gap: 20px;    
+}
+
+.rbtn label{
+    display: flex;
+    font-size: 15px;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.rbtn label:last-child {
+  margin-right: 0;}
+
+.sc_btn_lst{
+    margin-top: 20px;    
+    right: 0;
+}
+
+.btn{
+    width: 3%;
+}
+
+.sc_input_btn{
+    position: relative;
+    margin-left: 10px;
+    width: 70px;
+    height: 40px;    
+}
+
+.reset_btn{
+}
+
+.sc_result_container{
+    margin-top: 20px;
+    margin-left: 40px;
+    height: 350px;
+}
+
+.sc_block_result{
+    width: 40%;
+    float: left;
+    position: relative;
+    display: block;
+}
+
+.sc_text_area{
+    border: none;
+    resize: none;
+    width: 85%;
+    overflow: scroll;
+    height: inherit;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;    
+    word-break: break-all;
+}
+
+
+/* Nav setting */
+.nav_font{
+    font-size: 18px!important;
+    font-weight: 500;
+    font-family: "Noto Sans KR", sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.nav_bar{
+    width: 100%;
+    overflow: hidden;
+}
+
+.nav_shadow{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media (min-width:993px){
+    .nav_hidden_l{
+        display:none!important
+    }
+}
+
+@media (max-width:992px) and (min-width:601px){
+    .nav_hidden_m{
+        display:none!important
+    }
+}
+@media (max-width:600px){
+    .nav_hidden_s{
+        display:none!important
+    }
+}
+
+.nav_hide{
+    display:none!important
+}
+
+.nav_show{
+    display:block!important
+}
+
+/* .nav_btn{
+    float: left;
+    border: none;
+    display: inline-block;
+    padding: 12px 24px!important;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: default;
+    white-space: nowrap;
+} */
+
+.nav_btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px!important;
+  text-decoration: none;
+  float: left;
+}
+
+.nav_btn::after{
+    position: absolute;
+    content: "";
+    display: block;
+    border-bottom: 3px solid rgb(254, 204, 0);
+    transition: all 250ms ease-out;
+    height: 3px;
+    left: 50%;
+    width: 0;
+    bottom: 0;
+}
+
+.nav_btn:hover::after {    
+    left: 0%; 
+    width: 100%;
+}
+
+.nav_btn.active::after {
+    left: 0;
+    width: 100%;
+}
+
+.nav_btn_mini{
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px!important;
+  text-decoration: none;
+}
+
+.nav_btn_mini::after{
+    position: absolute;
+    content: "";
+    display: block;
+    border-bottom: 3px solid rgb(254, 204, 0);
+    transition: all 250ms ease-out;
+    height: 3px;
+    left: 50%;
+    width: 0;
+    bottom: 0;
+}
+
+.nav_btn_mini:hover::after {    
+    left: 0%; 
+    width: 100%;
+}
+
+.nav_bar_btn{
+    width: 100%;
+    display: block;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+}
+
+.nav_white{
+    background-color: rgba(255, 255, 255, 0.555);
+}
