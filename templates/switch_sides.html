@@ -4,54 +4,62 @@
 {% endblock %}
 {% block body-content %}
 
-<form method="GET" class="w3-container w3-card-4 w3-light-grey">
-    <br />
-    <br />
-    <br />
-    <h2>정치적 성향 입히기</h2>
-    <p>정치적 성향을 주고 싶은 기사를 입력하세요.</p>
-  
-    <p><label>Article</label></p>
-    <textarea class="w3-input w3-border" cols="5" rows="10" name="text" type="text" required>{{text}}</textarea>
 
-    <div class="test on_off-loc">
-        <h4 class="radio_name">선택 성향</h4>
-        {{ onoffform.on_off }}
+<div class="container_main">
+    <div class = "name">
+        <h1 class = "double_quote main_font bold_font">기사 성향 변경</h1>
+        <p>정치적 성향을 변경하고 싶은 기사를 입력하고 원하는 성향을 선택 후, 성향을 변경해봅시다!</p>        
+        <hr/>
     </div>
-
-
-    <h4 class="radio_name">기사 길이 (토큰 수)</h4>
-
-    <!--input range 입력-->
-    <input type="range" name="length" min=0 max=700 value=200 step=1 oninput="showVal(this.value);">
-    <!--input range 출력-->
-    <span id="scoreTxt">200</span>
-
-    <!--range 값 변화시 즉시 반영-->
-    <script>
-        function showVal(val) {
-            document.getElementById('scoreTxt').innerHTML=val; 
-            }
-    </script>
-    <br />
-    <input class="w3-button w3-round-xlarge w3-grey" type="submit">
-
-</form>
-
-<div 
-        {% if generated_j %}
-    class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue"
-        {% elif generated_b %}
-    class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red"
-        {% endif %}>
-    <p>
-        {% if generated_j %}
-            {{generated_j}}
-        {% elif generated_b %}
-            {{generated_b}}
-        {% endif %}
-    </p>
+    <div class = "contents">
+        <div class = "block">
+            <form method="GET" class="form_container">
+                <textarea class="input text_area" cols="5" rows="10" name="text" type="text" required>{{text}}</textarea>
+                <div class = "user_select">
+                    <div class = "select_box">
+                        <h5 class="radio_name">성향 선택</h5>
+                        {{ onoffform.on_off }}
+                    </div>
+                    <div class = "select_box">
+                        <h5 class="radio_name">기사 길이 (토큰 수)</h5>
+                        <!--input range 입력--> 
+                        <input type="range" name="length" min=0 max=700 value=200 step=1 oninput="showVal(this.value);">
+                        <!--input range 출력-->
+                        <span id="scoreTxt">200</span>
+                        <script>
+                            // range 값 변경 시 즉시 반영
+                            function showVal(val) {
+                            document.getElementById('scoreTxt').innerHTML=val; 
+                            }
+                        </script>
+                    </div>
+                    <div class = "sc_btn_lst">
+                        <button class="bold_font input_btn" type="submit">변경</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class = "sc_block_result">
+            <blockquote
+            {% if generated_j %}
+            class = "sc_result_container jinbo_result"
+            {% elif generated_b %}
+            class = "sc_result_container bosu_result"
+            {% else %}
+            class = "sc_result_container none_result"
+            {% endif %}>
+                <div class = "sc_text_area">
+                    <p class = "text_center_center">
+                        {% if generated_j %}
+                            {{generated_j}}
+                        {% elif generated_b %}
+                            {{generated_b}}
+                        {% else %}
+                        {% endif %}
+                    </p>
+                </div>
+            </blockquote>
+        </div>
+    </div>
 </div>
-
-
 {% endblock %}
