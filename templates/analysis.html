@@ -1,25 +1,93 @@
 {% extends "_base.html" %}
 {% block head-content %}
 {% load static %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var firstButton = document.getElementById('btn1');
+        firstButton.click();
+    })
 
+    function changeContent(buttonId) {
+        var content = document.getElementById("content")
+        if (buttonId === "btn1") {
+            content.innerHTML = `
+            <iframe class = 'iframe_1' src = 'https://public.tableau.com/views/_17496053044190/1?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>`;
+        } else if (buttonId === "btn2") {
+            content.innerHTML = `
+            <iframe class = 'iframe_1' src = 'https://public.tableau.com/views/tableau_17494519442480/3?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>`;
+        } else if (buttonId === "btn3") {
+            content.innerHTML = `
+            <iframe class = 'iframe_3' src = 'https://public.tableau.com/views/top100_17494355497240/top100?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>
+            <iframe class = 'iframe_3' src = 'https://public.tableau.com/views/top100_17494359829170/top100?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>`;
+        } else if (buttonId === "btn4") {
+            content.innerHTML = `
+            <div class = "ans_img_lst">
+                <img class = 'ans_img' src = '{% static 'image/진보 단어구름.png' %}'>
+                <img class = 'ans_img' src = '{% static 'image/보수 단어구름.png' %}'>
+            </div>`;
+        } else if (buttonId === "btn5") {
+            content.innerHTML = `
+            <iframe class = 'iframe_1' src = 'https://public.tableau.com/views/_17494543505970/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>
+            <iframe class = 'iframe_1' src= 'https://public.tableau.com/views/_17494543591890/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>`;
+        } else if (buttonId === "btn6") {
+            content.innerHTML = `
+            <iframe class = 'iframe_2' src = 'https://public.tableau.com/views/_17495419618990/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>
+            <iframe class = 'iframe_2' src= 'https://public.tableau.com/views/_17495417705680/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>`;
+        } else if (buttonId === "btn7") {
+            content.innerHTML = `
+            <iframe class = 'iframe_2' src = 'https://public.tableau.com/views/_17496263752680/sheet0?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true'>
+            </iframe>`;
+        }
+    }
+</script>
 {% endblock %}
 {% block body-content %}
 <div class="container_main">
     <div class = "name">
         <h1 class = "double_quote main_font bold_font">정치 기사 분석</h1>
-        <p>기사를 통해 추출한 데이터를 통한 분석</p>   
+        <p class = "temp_p">기사를 통해 추출한 데이터를 통한 분석</p>   
         <hr />
     </div>
-    <div class="w3-panel w3-leftbar w3-border-blue">
-        <h3>I have a thick blue left border.</h3>
-        <iframe src = "https://public.tableau.com/views/_17496053044190/1?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width = "800" height = "700"> </iframe> <iframe src = "https://public.tableau.com/views/tableau_17494519442480/3?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"> </iframe>
-        <iframe src= "https://public.tableau.com/views/top100_17494355497240/top100?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"> </iframe> <iframe src = "https://public.tableau.com/views/top100_17494359829170/top100?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"> </iframe>
-        <img class = "img_margin" src = "{% static 'image/진보 단어구름.png' %}" width = "600" height = "400" margin-right = "50px"> <img src = "{% static 'image/보수 단어구름.png' %}" width = "600" height = "400">
-        <iframe src= "https://public.tableau.com/views/_17494543505970/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"> </iframe> <iframe src= "https://public.tableau.com/views/_17494543591890/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"></iframe>
-        <iframe src= "https://public.tableau.com/views/_17495419618990/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="1600" height="550"> </iframe> 
-        <iframe src= "https://public.tableau.com/views/_17495417705680/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="1600" height="550"></iframe>
-        <iframe src = "https://public.tableau.com/views/_17496263752680/1?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width = "1600" height = "600"></iframe>
+        <menu class = "ans_select">            
+            <button class = "ans_btn" id = "btn1" onclick = "changeContent('btn1');">월 별 기사 수 추이</button>
+            <button class = "ans_btn" id = "btn2" onclick = "changeContent('btn2');">진영 별 월 기사 수 & 평균 본문길이 비교</button>
+            <button class = "ans_btn" id = "btn3" onclick = "changeContent('btn3');">진영 별 키워드 Top 100 버블</button>
+            <button class = "ans_btn" id = "btn7" onclick = "changeContent('btn7');">진영 별 키워드 언급량 </button>
+            <button class = "ans_btn" id = "btn6" onclick = "changeContent('btn6');">진영 별 키워드 포함 기사 분포</button>
+            <button class = "ans_btn" id = "btn4" onclick = "changeContent('btn4');">진영 별 키워드 워드 클라우드</button>            
+            <button class = "ans_btn" id = "btn5" onclick = "changeContent('btn5');">진영 별 키워드 가중치</button>            
+        </menu>
+        <script>
+            const btns = document.querySelectorAll(".ans_btn");
+            btns.forEach(btn => {
+                btn.addEventListener('click', (event) =>{
+                    btns.forEach(otherBtn => {
+                        otherBtn.classList.remove('active');                
+                    });
+                    btn.classList.add('active');
+                });
+            });
+        </script>
+    <div class = "ans_block">
+        <p id = "content" class = "ans_change">이 영역은 버튼 클릭 시 내용이 변경됩니다.</p>
     </div>
+        <!-- <iframe src = "https://public.tableau.com/views/_17496053044190/1?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width = "800" height = "700"> </iframe> -->
+        <!-- <iframe src = "https://public.tableau.com/views/tableau_17494519442480/3?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"> </iframe> -->
+        <!-- <iframe src= "https://public.tableau.com/views/top100_17494355497240/top100?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"> </iframe> <iframe src = "https://public.tableau.com/views/top100_17494359829170/top100?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"> </iframe> -->
+        <!-- <img class = "img_margin" src = "{% static 'image/진보 단어구름.png' %}" width = "600" height = "400" margin-right = "50px"> <img src = "{% static 'image/보수 단어구름.png' %}" width = "600" height = "400"> -->
+        <!-- <iframe src= "https://public.tableau.com/views/_17494543505970/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"> </iframe> <iframe src= "https://public.tableau.com/views/_17494543591890/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="800" height="700"></iframe> -->
+        <!-- <iframe src= "https://public.tableau.com/views/_17495419618990/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="1600" height="550"> </iframe> <iframe src= "https://public.tableau.com/views/_17495417705680/1?:language=ko-KR&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width="1600" height="550"></iframe> -->
+        <!-- <iframe src = "https://public.tableau.com/views/_17496263752680/1?:language=ko-KR&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true" width = "1600" height = "600"></iframe> -->
 </div>
+
+
 
 {% endblock %}

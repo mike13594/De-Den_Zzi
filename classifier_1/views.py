@@ -16,7 +16,8 @@ def classifier_1(request):
         return render(request, 'classifier.html')
 
     else:
-        text = request.GET.get("text")
+        dft_text = request.GET.get("text")
+        text = dft_text[:]
         text = text.replace("\n", " ")
         text = re.sub(r"\s*[가-힣]{2,4}\s*기자\s*", "", string = text)
         text = re.sub(r"(?i)\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", "", string = text)
@@ -100,7 +101,7 @@ def classifier_1(request):
     if pred_result == 0:
         bosu="보수 성향의 기사입니다."
         context = {
-            "text" : text,
+            "text" : dft_text,
             "bosu" : bosu
 
         }
@@ -109,9 +110,8 @@ def classifier_1(request):
         jinbo="진보 성향의 기사입니다."
             
         context = {
-            "text" : text,
+            "text" : dft_text,
             "jinbo" : jinbo
         }
 
     return render(request, 'classifier.html', context)
-
