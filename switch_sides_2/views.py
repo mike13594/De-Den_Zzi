@@ -10,7 +10,6 @@ bos_token='</s>', eos_token='</s>', unk_token='<unk>',
 pad_token='<pad>', mask_token='<mask>')
 
 model_b = AutoModelWithLMHead.from_pretrained("create_3/bosu/")
-
 # 진보 모델, 토크나이저
 tokenizer_j = PreTrainedTokenizerFast.from_pretrained("create_3/jinbo/",
 bos_token='</s>', eos_token='</s>', unk_token='<unk>',
@@ -45,9 +44,9 @@ def clean_text(text):
     remove_t2 = "\([^)]*\)" # 소괄호
     text = re.sub(remove_t1, "", string = text)
     text = re.sub(remove_t2, "", string = text)
-    text = text.replace("  ", " ")
+    chg_text = text.replace("  ", " ")
 
-    return text
+    return chg_text
 
 class KoBARTConditionalGeneration(torch.nn.Module):
     def __init__(self):
@@ -83,7 +82,7 @@ def switch_sides_2(request):
 
     elif request.GET.get("on_off", "") == '진보':
         text = request.GET.get("text")
-        text = clean_text(text)
+        chg_text = clean_text(text)
         # device 지정
         device = torch.device("cpu")
 
@@ -98,7 +97,7 @@ def switch_sides_2(request):
         tokenizer = PreTrainedTokenizerFast.from_pretrained("gogamza/kobart-base-v2")
 
         # 텍스트 토큰화
-        tokenized_text = tokenizer(text, max_length = 200, truncation=True, padding = "max_length", return_tensors = "pt")
+        tokenized_text = tokenizer(chg_text, max_length = 200, truncation=True, padding = "max_length", return_tensors = "pt")
         input_ids = tokenized_text["input_ids"].to(device)
         attention_mask = tokenized_text["attention_mask"].to(device)
 
@@ -124,7 +123,7 @@ def switch_sides_2(request):
 
     elif request.GET.get("on_off", "") == '보수':
         text = request.GET.get("text")
-        text = clean_text(text)
+        chg_text = clean_text(text)
         # device 지정
         device = torch.device("cpu")
 
@@ -139,7 +138,7 @@ def switch_sides_2(request):
         tokenizer = PreTrainedTokenizerFast.from_pretrained("gogamza/kobart-base-v2")
 
         # 텍스트 토큰화
-        tokenized_text = tokenizer(text, max_length = 200, truncation=True, padding = "max_length", return_tensors = "pt")
+        tokenized_text = tokenizer(chg_text, max_length = 200, truncation=True, padding = "max_length", return_tensors = "pt")
         input_ids = tokenized_text["input_ids"].to(device)
         attention_mask = tokenized_text["attention_mask"].to(device)
 

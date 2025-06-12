@@ -95,8 +95,12 @@ body, h1, h2, h3, h4, h5, h6 {
     text-align: center!important;
 }
 
+.text_center_left{    
+    text-align: left;
+}
+
 .text_center_center{
-    text-align: center!important;
+    text-align: justify!important;
     /* line-height: 400px; */
 }
 
@@ -313,13 +317,84 @@ blockquote.bluejeans .quote-icon {
     padding-bottom: 32px!important;
 }
 
+.footer_info{
+    justify-items: center;
+}
 
+/* Analysis setting */
+.ans_select{
+    display: flex;
+    justify-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
 
-.w3-margin{margin:16px!important}
-.w3-margin-top{margin-top:16px!important}
-.w3-margin-bottom{margin-bottom:16px!important}
-.w3-margin-left{margin-left:16px!important}
-.w3-margin-right{margin-right:16px!important}
+.ans_btn{
+    border-radius: 0.5em;
+    cursor: default;
+    border: 1px solid #666;
+    background-color: transparent;
+    height: 40px;
+}
+
+.ans_btn:hover {    
+    box-shadow: 0 0 40px 40px rgb(254, 204, 0) inset;
+    border: none;
+    color: white;
+}
+
+.ans_btn.active, .ans_btn.active:hover {
+    background-color: rgb(254, 204, 0);
+    border: none;
+    color: white;
+}
+
+.ans_img_lst{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;    
+    gap: 50px;
+}
+
+.ans_img{
+    height: auto;
+    width: 47%;
+    display: block;
+}
+
+.ans_block{
+    width: 90%;
+    float: left;
+    margin-right: 3%;
+    margin-left: 40px;
+    height: inherit;
+}
+
+.analysis_change{
+    margin-left: 40px!important;
+}
+
+.iframe_1{
+    width: 100%;
+    height: 800px;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.iframe_2{
+    width: 100%;
+    height: 700px;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.iframe_3{
+    width: 100%;
+    height: 800px!important;
+    border: none;
+    margin-bottom: 30px;
+}
 
 /* Classifier setting */
 
@@ -362,6 +437,7 @@ blockquote.bluejeans .quote-icon {
 .form_container{
     margin-left: 40px;
     height: 500px;
+    margin-bottom: 50px;
 }
 
 form{
@@ -403,7 +479,7 @@ form{
 }
 
 .clf_btn_lst{
-    margin-top: 10px;
+    margin-top: 27px;
     float: right;
 }
 
@@ -416,15 +492,26 @@ form{
     margin-left: 10px;
     width: 70px;
     height: 40px;
+    background-color: transparent;
+    border: 1px solid #666;
+    border-radius: 0.5em;
 }
 
-.reset_btn{
+.input_btn:hover{
+    /* background-color: rgb(254, 204, 0); */
+    box-shadow: 0 0 40px 40px rgb(254, 204, 0) inset;
+    border: none;
+    color: white;
+}
+
+.input_range{
+    accent-color: rgb(254, 204, 0); 
 }
 
 .jinbo_result{
     position:relative;
-    border-left:4px solid #9eacff;
-    border-right:4px solid #9eacff;
+    border-left:10px solid #9eacff;
+    border-right:10px solid #9eacff;
     padding:20px;
     background:#eff2ff;
     display: flex;
@@ -454,8 +541,8 @@ form{
 
 .bosu_result{
     position:relative;
-    border-left:4px solid #ff9e9e;
-    border-right:4px solid #ff9e9e;
+    border-left:10px solid #ff9e9e;
+    border-right:10px solid #ff9e9e;
     padding:20px;
     background:#ffefef;
     display: flex;
@@ -518,13 +605,13 @@ form{
 .user_select{
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-items: center;
+    align-items: flex-end;
+    justify-items: center;    
 }
 
 .select_box{
     min-width: 200px;
-    flex: 1;
+    flex: 0 0 auto;
 }
 
 [type="radio"] {
@@ -560,6 +647,9 @@ form{
 .sc_btn_lst{
     margin-top: 20px;    
     right: 0;
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
 }
 
 .btn{

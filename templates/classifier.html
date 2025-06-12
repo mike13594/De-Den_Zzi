@@ -5,16 +5,21 @@
 {% block body-content %}
 <div class="container_main">
     <div class = "name">
-        <h1 class = "double_quote main_font bold_font">신문 성향 분석</h1>
+        <h1 class = "double_quote main_font bold_font">기사 성향 분석</h1>
         <p>왼쪽에 기사 본문을 입력 후 분석 버튼을 눌러주세요!</p>
     <hr/>
     </div>
     <div class = "contents">
         <div class = "block">
-            <form method="GET" class="form_container">          
-                <textarea class="input text_area" cols="5" rows="10" name="text" type="text" required>{{text}}</textarea>
+            <form id = "user_form" method="GET" class="form_container">          
+                <textarea id = "user_textarea" class="input text_area" cols="5" rows="10" name="text" type="text" required>{{text}}</textarea>
                 <div class = "clf_btn_lst">
-                    <button class="bold_font input_btn" type="reset">지우기</button>
+                    <button id = "clear_button" onclick="clearTextarea()" class="bold_font input_btn" type="button">지우기</button>
+                    <script>                        
+                        function clearTextarea() {
+                            document.getElementById("user_textarea").value = '';
+                        };
+                    </script>
                     <button class="bold_font input_btn" type="submit">분석</button>
                 </div>      
             </form>

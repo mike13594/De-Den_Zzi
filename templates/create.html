@@ -6,15 +6,15 @@
 
 <div class="container_main">
     <div class = "name">
-        <h1 class = "double_quote main_font bold_font">신문 기사 생성</h1>
-        <p>원하는 문장 혹은 문장의 도입을 입력하여 정치 기사로 생성해보세요!</p>
+        <h1 class = "double_quote main_font bold_font">정치 기사 생성</h1>
+        <p>원하는 문장 혹은 문장의 도입을 입력하여 기사로 생성해보세요!</p>
         <p>ex₁) 참 많은 시간이 흘렀다고 생각했다.</br>ex₂) 부산 광안리에서</p>
         <hr/>
     </div>
     <div class = "contents">
         <div class = "block">
             <form method="GET" class="form_container">    
-                <textarea class="input text_area" cols="5" rows="10" name="text" type="text" required>{{text}}</textarea>
+                <textarea id = "user_textarea" class="input text_area" cols="5" rows="10" name="text" type="text" required>{{text}}</textarea>
                 <div class = "user_select">
                     <div class = "select_box">
                         <h5 class="radio_name">성향 선택</h5>
@@ -23,7 +23,7 @@
                     <div class = "select_box">
                         <h5 class="radio_name">기사 길이 (토큰 수)</h5>
                         <!--input range 입력-->
-                        <input type="range" name="length" min=0 max=700 value=200 step=1 oninput="showVal(this.value);">
+                        <input class = "input_range" type="range" name="length" min=0 max=700 value=200 step=1 oninput="showVal(this.value);">
                         <!--input range 출력-->
                         <span id="scoreTxt">200</span>                        
                         <script>
@@ -34,6 +34,12 @@
                         </script>
                     </div>
                     <div class = "sc_btn_lst">
+                        <button id = "clear_button" onclick="clearTextarea()" class="bold_font input_btn" type="button">지우기</button>
+                        <script>
+                            function clearTextarea() {
+                                document.getElementById("user_textarea").value = '';
+                            };
+                        </script>
                         <button class="bold_font input_btn" type="submit">생성</button>
                     </div>
                 </div>   

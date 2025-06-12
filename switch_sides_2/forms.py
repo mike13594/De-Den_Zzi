@@ -10,6 +10,6 @@ class OnOffForm(forms.Form):
         widget = forms.RadioSelect(attrs = {'class': 'rbtn'}),
         required = False,
         label = "진영",
-        initial = "성향",
+        initial = "진보",
         )
     
